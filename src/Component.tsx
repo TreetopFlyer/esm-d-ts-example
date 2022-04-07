@@ -1,12 +1,16 @@
-import React from "react";
+import { useState } from "react";
+import styled from "styled-components"
+
+const Title = styled.dt`
+    padding:20px;
+    color:blue;
+`;
 
 export default (props:any) =>
 {
-
-    let [stateGet, stateSet] = React.useState(0);
-
+    let [stateGet, stateSet] = useState(0);
     return <dl>
-        <dt>children?</dt>
+        <Title>children?</Title>
         <dd>{ props.children }</dd>
     </dl>;
 };

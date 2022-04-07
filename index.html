@@ -3,10 +3,13 @@
 {
     "imports":
     {
-        "react": "https://esm.sh/react",
-        "react/jsx-runtime": "https://esm.sh/react/jsx-runtime",
-        "react-dom": "https://esm.sh/react-dom"
+        "react": "https://esm.sh/react@18",
+        "react/": "https://esm.sh/react@18/",
+        "react-dom": "https://esm.sh/react-dom?deps=react@18",
+        "react-dom/": "https://esm.sh/react-dom?deps=react@18/",
+        "styled-components": "https://esm.sh/styled-components?deps=react@18"
+
     }
 }
 </script>
-<script src="./dst/index.js" type="module"></script>
+<script type="module" src="./dst/index.js"></script>
