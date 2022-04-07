@@ -1,15 +1,23 @@
-<div id="app"></div>
-<script type="importmap">
-{
-    "imports":
-    {
-        "react": "https://esm.sh/react@18",
-        "react/": "https://esm.sh/react@18/",
-        "react-dom": "https://esm.sh/react-dom?deps=react@18",
-        "react-dom/": "https://esm.sh/react-dom?deps=react@18/",
-        "styled-components": "https://esm.sh/styled-components?deps=react@18"
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <div id="app"></div>
+    <script type="importmap">
+        {
+            "imports":
+            {
+                    "react" : "https://esm.sh/react@18",
+                "react-dom" : "https://esm.sh/react-dom/client",
+                     "html" : "https://esm.sh/htm/react?deps=react@18"
+            }
+        }
+    </script>
+    <script type="module">
+        import { createRoot } from "react-dom";
+        import App from "./app.js"
 
-    }
-}
-</script>
-<script type="module" src="./dst/index.js"></script>
+        createRoot( document.querySelector("#app") ).render( App );
+    </script>
+</body>
+</html>
