@@ -1,6 +1,9 @@
 // @ts-check
 import { createContext, createElement, useContext, useReducer } from "react";
 
+// @ts-ignore
+/** @typedef {import("./types.d")} Store */
+
 const Context = createContext(null);
 
 /** @type {Store.HistoryItem} InitialHistory */
@@ -25,14 +28,16 @@ const Reducer = (inState, inAction) =>
                 Current: { Key: inAction.Payload, Ind: 0 }
             };
         case "pick" :
+            if(inAction.Payload == inState.Current.Ind) break;
+            if(inAction.Payload < 0) inAction.Payload = 0;
+            if(inAction.Payload > inState.History.length-1 ) inAction.Payload = inState.History.length-1;
             return {
                 History: [...inState.History],
                 Previous: inState.Current,
                 Current: { Key: inState.History[inAction.Payload], Ind: inAction.Payload }
-            };
-        default :
-            return inState;
+            }; 
     }
+    return inState;
 };
 
 export const Provide = ({children}) => createElement(Context.Provider, {value:useReducer(Reducer, State)}, children);
