@@ -1,8 +1,7 @@
 // @ts-check
-import { createContext, createElement, useContext, useReducer } from "react";
+/// <reference path="types.d.ts"/>
 
-// @ts-ignore
-/** @typedef {import("./types.d")} Store */
+import { createContext, createElement, useContext, useReducer } from "react";
 
 const Context = createContext(null);
 
